@@ -2,7 +2,7 @@
 @extends('layouts.master')
 @section('title', 'Update User')
 @section('body.breadcrumbs')
-    {{--{{ Breadcrumbs::render('leads.create') }}--}}
+    {{ Breadcrumbs::render('user.edit',$user->full_name) }}
 @stop
 @section('styles')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
@@ -100,7 +100,7 @@
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <input id="imgHandleInput" name="avatar" type="file" value="">
-                        <a href="{{route('user.index')}}" class="btn btn-default">Cancel</a>
+                        <a href="{{route('user.delete',['id' => $user->id])}}" class="btn btn-danger">Delete</a>
                         <button type="submit" class="btn btn-primary pull-right">Update</button>
                     </div>
                 </div>

@@ -34,4 +34,9 @@ class UserController extends Controller
         $this->userService->update($id,$request);
         return redirect()->route('user.index')->with('success', 'User was edit successfully.');
     }
+
+    public function delete($id){
+        $this->userService->delete($id);
+        return redirect()->route('user.index')->with('success', 'User was delete successfully.');
+    }
 }

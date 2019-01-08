@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('title', 'Edit Venue Type')
 @section('body.breadcrumbs')
-    {{--{{ Breadcrumbs::render('regions.create') }}--}}
+    {{ Breadcrumbs::render('brand.edit',$brand->name) }}
 @stop
-@section('content')
+@section('body.content')
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">@yield('title')</h3>
@@ -12,7 +12,7 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-sm-6 col-sm-push-3">
-                    <form role="form" method="post" action="{{route('venue_type.edit',['id' => $venueType->id])}}" enctype = "multipart/form-data">
+                    <form role="form" method="post" action="{{route('brand.edit',['id' => $brand->id])}}" enctype = "multipart/form-data">
                         {{ csrf_field() }}
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -31,18 +31,18 @@
                                 <p>{{ \Session::get('success') }}</p>
                             </div>
                         @endif
-                        <div class="form-group{{ $errors->has('type_name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label>Type Name</label>
-                            <input name="type_name" value="{{ $venueType->name }}" type="text" class="form-control" placeholder="Enter ..." required>
-                            @if ($errors->has('type_name'))
+                            <input name="name" value="{{ $brand->name }}" type="text" class="form-control" placeholder="Enter ..." required>
+                            @if ($errors->has('name'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('type_name') }}</strong>
+                                    <strong>{{ $errors->first('name') }}</strong>
                                 </span>
                             @endif
                         </div>
 
                         <div class="form-action">
-                            <a href="{{route('venue_type.index')}}" class="btn btn-default">Cancel</a>
+                            <a href="{{route('brand.delete',['id' => $brand->id])}}" class="btn btn-danger">Delete</a>
                             <button type="submit" class="btn btn-primary pull-right">Update</button>
                         </div>
                         <!-- /.box-body -->

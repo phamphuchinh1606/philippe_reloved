@@ -16,3 +16,4 @@ Route::get('/brands/create', 'BrandController@showCreate')->name('brand.create')
 Route::post('/brands/create', 'BrandController@store')->name('brand.create');
 Route::get('/brands/edit/{id}', 'BrandController@showEdit')->name('brand.edit');
 Route::post('/brands/edit/{id}', 'BrandController@edit')->name('brand.edit');
+Route::get('/brands/delete/{id}', 'BrandController@delete')->name('brand.delete');

@@ -18,7 +18,7 @@ class BrandService extends BaseService
     }
 
     private function getBrandInfo(Request $request, $brand = null){
-        if(!isset($user)){
+        if(!isset($brand)){
             $brand = new Brand();
         }
 
@@ -33,7 +33,7 @@ class BrandService extends BaseService
         if(isset($brand->name)){
             try{
                 DB::beginTransaction();
-                $userDB = $this->brandLogic->save($brand);
+                $brand = $this->brandLogic->save($brand);
                 DB::commit();
 
             }catch (\Exception $ex){
@@ -43,17 +43,19 @@ class BrandService extends BaseService
         return $brand;
     }
 
-    public function update($userId, $request){
-        $userDB = $this->find($userId);
-        if(isset($userDB)){
-            $user = $this->getUserInfo($request,$userDB);
-            $avatar = $request->file('avatar');
-            if(isset($avatar)){
-                AppCommon::deleteImage($userDB->avatar);
-                $imageName = AppCommon::moveImage($avatar, Constant::$PATH_FOLDER_UPLOAD_USER.'/'.$userDB->id);
-                $user->avatar = $imageName;
-            }
-            $this->userLogic->save($user);
+    public function update($brandId, $request){
+        $brandDB = $this->brandLogic->find($brandId);
+        if(isset($brandDB)){
+            $brand = $this->getBrandInfo($request,$brandDB);
+            $this->brandLogic->save($brand);
+        }
+    }
+
+    public function delete($brandId){
+        $brand = $this->brandLogic->find($brandId);
+        if(isset($brand)){
+            $brand->delete_flg = Constant::$DELETE_FLG_ON;
+            $this->brandLogic->save($brand);
         }
     }
 }

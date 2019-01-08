@@ -78,4 +78,12 @@ class UserService extends BaseService
             $this->userLogic->save($user);
         }
     }
+
+    public function delete($brandId){
+        $user = $this->userLogic->find($brandId);
+        if(isset($user)){
+            $user->delete_flg = Constant::$DELETE_FLG_ON;
+            $this->userLogic->save($user);
+        }
+    }
 }

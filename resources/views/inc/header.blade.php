@@ -53,7 +53,7 @@ $auth = Auth::user();
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        <img src="@if($auth->avatar){{$auth->avatar}}@else{{ asset(Constant::$PATH__DEFAULT__AVATAR) }}@endif" class="user-image" alt="{{$auth->full_name}}">
+                        <img src="@if($auth->avatar){{\App\Common\ImageCommon::showImage($auth->avatar)}}@else{{ asset(Constant::$PATH__DEFAULT__AVATAR) }}@endif" class="user-image" alt="{{$auth->full_name}}">
                         {{--<img src="{{ asset(Utils::$PATH__IMAGE) }}/1536166244.png" class="user-image" alt="{{$auth->fullname}}">--}}
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <span class="hidden-xs">{{$auth->full_name}}</span>
@@ -61,10 +61,10 @@ $auth = Auth::user();
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="@if($auth->avatar){{$auth->avatar}}@else{{asset(Constant::$PATH__DEFAULT__AVATAR)}}@endif" class="img-circle" alt="User Image">
+                            <img src="@if($auth->avatar){{\App\Common\ImageCommon::showImage($auth->avatar)}}@else{{asset(Constant::$PATH__DEFAULT__AVATAR)}}@endif" class="img-circle" alt="User Image">
                             {{--<img src="{{asset(Utils::$PATH__IMAGE) }}/1536166244.png" class="img-circle" alt="User Image">--}}
                             <p>
-                                @if($auth->fullname) {{ $auth->fullname }} @else {{ $auth->username }} @endif
+                                {{$auth->full_name}}
                                 <small>Member since {{ Carbon::parse($auth->create_at)->format('F. Y') }}</small>
                             </p>
                         </li>

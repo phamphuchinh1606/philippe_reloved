@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Create Brand')
 @section('body.breadcrumbs')
-    {{--{{ Breadcrumbs::render('regions.create') }}--}}
+    {{ Breadcrumbs::render('brand.create') }}
 @stop
 @section('body.content')
     <div class="box">
@@ -33,7 +33,7 @@
                         @endif
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label>Type Name</label>
-                            <input name="type_name" value="{{ old('name') }}" type="text" class="form-control" placeholder="Enter ..." required>
+                            <input name="name" value="{{ old('name') }}" type="text" class="form-control" placeholder="Enter ..." required>
                             @if ($errors->has('name'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('name') }}</strong>

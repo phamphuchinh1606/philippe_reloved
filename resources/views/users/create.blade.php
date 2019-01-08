@@ -2,7 +2,7 @@
 @extends('layouts.master')
 @section('title', 'Create User')
 @section('body.breadcrumbs')
-    {{--{{ Breadcrumbs::render('leads.create') }}--}}
+    {{ Breadcrumbs::render('user.create') }}
 @stop
 @section('styles')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>

@@ -20,7 +20,7 @@
     </script>
 @stop
 @section('body.breadcrumbs')
-    {{--{{ Breadcrumbs::render('gifts') }}--}}
+    {{ Breadcrumbs::render('brand') }}
 @stop
 @section('body.content')
     <div class="box box-list">
@@ -51,7 +51,9 @@
                     <tbody>
                     @foreach($brands as $key => $brand)
                         <tr>
-                            <td width="40" align="center"><?php echo $i?></td>
+                            <td width="40" align="center">
+                                {{$key+1}}
+                            </td>
                             <td>
                                 {{$brand->name}}
                             </td>
@@ -63,7 +65,7 @@
                             </td>
                             <td class="actions text-center" style="width: 100px">
                                 {{--<a href="" class="btn btn-xs btn-success" title="View"><i class="fa fa-eye"></i></a>--}}
-                                <a href="{{route('venue_type.edit',['id'=>$brand->id])}}" class="btn btn-xs btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
+                                <a href="{{route('brand.edit',['id'=>$brand->id])}}" class="btn btn-xs btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
 
                             </td>
                         </tr>

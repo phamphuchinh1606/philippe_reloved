@@ -16,3 +16,6 @@ Route::get('/users/create', 'UserController@showCreate')->name('user.create');
 Route::post('/users/create', 'UserController@store')->name('user.create');
 Route::get('/users/edit/{id}', 'UserController@showEdit')->name('user.edit');
 Route::post('/users/edit/{id}', 'UserController@edit')->name('user.edit');
+Route::get('/users/delete/{id}', 'UserController@delete')->name('user.delete');
+
+Route::get('/', 'HomeController@index')->name('home');

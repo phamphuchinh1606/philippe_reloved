@@ -26,12 +26,17 @@ class BrandController extends Controller
     }
 
     public function showEdit($id){
-        $user = $this->userService->find($id);
-        return $this->showView('edit',['user' => $user]);
+        $brand = $this->brandService->find($id);
+        return $this->showView('edit',['brand' => $brand]);
     }
 
     public function edit($id, Request $request){
-        $this->userService->update($id,$request);
-        return redirect()->route('user.index')->with('success', 'User was edit successfully.');
+        $this->brandService->update($id,$request);
+        return redirect()->route('brand.index')->with('success', 'Brand was edit successfully.');
+    }
+
+    public function delete($id){
+        $this->brandService->delete($id);
+        return redirect()->route('brand.index')->with('success', 'Brand was delete successfully.');
     }
 }
