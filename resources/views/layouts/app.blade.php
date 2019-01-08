@@ -7,6 +7,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="apple-touch-icon" href="{{asset('app-icon.png')}}">
+    <link rel="shortcut icon" href="{{asset('app-icon.png')}}">
 
     <title>Reloved App</title>
 

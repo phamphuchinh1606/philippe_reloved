@@ -1,6 +1,6 @@
 <?php ?>
 @extends('layouts.master')
-@section('title', 'List User')
+@section('title', 'List Model')
 @section('javascript')
     <script src="{{ asset('js/admin/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/admin/dataTables.bootstrap.min.js') }}"></script>

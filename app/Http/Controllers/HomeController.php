@@ -15,7 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('homes.home');
+//        return view('homes.home');
+        return redirect()->route('user.index');
     }
 
     public function dashboard(Request $request)
