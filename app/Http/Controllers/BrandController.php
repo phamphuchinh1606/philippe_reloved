@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class BrandController extends Controller
 {
     private function showView($viewName, $params = []){
-        return view('users.'.$viewName,$params);
+        return view('brands.'.$viewName,$params);
     }
 
     public function index()
     {
-        $users = $this->userService->getList();
-        return $this->showView('index',['users' => $users]);
+        $brands = $this->brandService->getList();
+        return $this->showView('index',['brands' => $brands]);
     }
 
     public function showCreate(){
@@ -21,8 +21,8 @@ class UserController extends Controller
     }
 
     public function store(Request $request){
-        $this->userService->create($request);
-        return redirect()->route('user.index');
+        $this->brandService->create($request);
+        return redirect()->route('brand.index');
     }
 
     public function showEdit($id){

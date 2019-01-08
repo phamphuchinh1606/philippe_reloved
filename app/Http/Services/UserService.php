@@ -13,6 +13,10 @@ class UserService extends BaseService
         return $this->userLogic->getAll();
     }
 
+    public function find($userId){
+        return $this->userLogic->find($userId);
+    }
+
     private function getUserInfo(Request $request, $user = null){
         if(!isset($user)){
             $user = new User();
@@ -59,5 +63,19 @@ class UserService extends BaseService
             }
         }
         return $user;
+    }
+
+    public function update($userId, $request){
+        $userDB = $this->find($userId);
+        if(isset($userDB)){
+            $user = $this->getUserInfo($request,$userDB);
+            $avatar = $request->file('avatar');
+            if(isset($avatar)){
+                AppCommon::deleteImage($userDB->avatar);
+                $imageName = AppCommon::moveImage($avatar, Constant::$PATH_FOLDER_UPLOAD_USER.'/'.$userDB->id);
+                $user->avatar = $imageName;
+            }
+            $this->userLogic->save($user);
+        }
     }
 }
