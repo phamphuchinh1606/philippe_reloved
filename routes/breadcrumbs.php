@@ -61,5 +61,24 @@ Breadcrumbs::for('model.edit', function ($trail, $modelName) {
 });
 //========================End Model===============================================
 
+//Selling Status===================================================================
+Breadcrumbs::for('selling_status', function ($trail) {
+    $trail->parent('home');
+    $trail->push('List Selling Status', route('model.index'));
+});
+
+//Model Create
+Breadcrumbs::for('selling_status.create', function ($trail) {
+    $trail->parent('selling_status');
+    $trail->push('Create Selling Status');
+});
+
+//Model Update
+Breadcrumbs::for('selling_status.edit', function ($trail, $statusName) {
+    $trail->parent('selling_status');
+    $trail->push($statusName);
+});
+//========================End Selling Status===============================================
+
 
 

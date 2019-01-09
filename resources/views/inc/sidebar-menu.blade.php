@@ -30,13 +30,16 @@ $auth = Auth::user();
                 {{--</a>--}}
             {{--</li>--}}
             <li class="{{ (Request::is('*users*') ? 'active' : '') }}">
-                <a href="{{route('user.index')}}"><i class="fa fa-users"></i><span>List User</span></a>
+                <a href="{{route('user.index')}}"><i class="fa fa-users"></i><span>Users</span></a>
             </li>
             <li class="{{ (Request::is('*brands*') ? 'active' : '') }}">
-                <a href="{{route('brand.index')}}"><i class="fa fa-bandcamp"></i><span>List Brand</span></a>
+                <a href="{{route('brand.index')}}"><i class="fa fa-bandcamp"></i><span>Brands</span></a>
             </li>
             <li class="{{ (Request::is('*models*') ? 'active' : '') }}">
-                <a href='{{route('model.index')}}'><i class="fa  fa-plane"></i><span>List Model</span></a>
+                <a href='{{route('model.index')}}'><i class="fa  fa-plane"></i><span>Models</span></a>
+            </li>
+            <li class="{{ (Request::is('*selling-status*') ? 'active' : '') }}">
+                <a href="{{route('selling_status.index')}}"><i class="fa fa-shield"></i><span>Status</span></a>
             </li>
             {{--Product--}}
             {{--<li class="{{ (Request::is('*actions*') ? 'active' : '') }}">--}}

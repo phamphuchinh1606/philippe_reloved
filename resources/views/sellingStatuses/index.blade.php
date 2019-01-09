@@ -1,6 +1,6 @@
 <?php ?>
 @extends('layouts.master')
-@section('title', 'List Of User')
+@section('title', 'List Of Selling Status')
 @section('javascript')
     <script src="{{ asset('js/admin/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/admin/dataTables.bootstrap.min.js') }}"></script>
@@ -20,13 +20,13 @@
     </script>
 @stop
 @section('body.breadcrumbs')
-    {{ Breadcrumbs::render('user') }}
+    {{ Breadcrumbs::render('selling_status') }}
 @stop
 @section('body.content')
     <div class="box box-list">
         <div class="box-header clearfix">
             <h3 class="box-title">@yield('title')</h3>
-            <a href="{{route('user.create')}}" class="btn btn-md btn-primary pull-right"><i class="fa fa-plus"></i> New User</a>
+            <a href="{{route('selling_status.create')}}" class="btn btn-md btn-primary pull-right"><i class="fa fa-plus"></i> New Status</a>
         </div>
 
         <!-- /.box-header -->
@@ -42,44 +42,34 @@
                     <thead>
                     <tr>
                         <th>No.</th>
-                        <td>Avatar</td>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>City</th>
+                        <th>Status Name</th>
+                        <th>Create Date</th>
+                        <th>Update Date</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($users as $key => $user)
+                    @foreach($statuses as $key => $status)
                         <tr>
                             <td width="40" align="center">
-                                {{$key+1}}
+                                {{$key +1}}
                             </td>
                             <td>
-                                @if(isset($user->avatar))
-                                    <img src="{{\App\Common\ImageCommon::showImage($user->avatar)}}" width="50" height="50"/>
-                                @else
-                                    <img src="{{asset(\App\Common\Constant::$PATH__DEFAULT__AVATAR)}}" width="50" height="50"/>
-                                @endif
-
+                                {{$status->name}}
                             </td>
                             <td>
-                                {{$user->full_name}}
+                                {{$status->created_at}}
                             </td>
                             <td>
-                                {{$user->email}}
-                            </td>
-                            <td>
-                                {{$user->city}}
+                                {{$status->updated_at}}
                             </td>
                             <td class="actions text-center" style="width: 100px">
                                 {{--<a href="" class="btn btn-xs btn-success" title="View"><i class="fa fa-eye"></i></a>--}}
-                                <a href="{{route('user.edit',['id'=> $user->id])}}" class="btn btn-xs btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
+                                <a href="{{route('selling_status.edit',['id'=>$status->id])}}" class="btn btn-xs btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
 
                             </td>
                         </tr>
                     @endforeach
-
                     </tbody>
                 </table>
             </div>
