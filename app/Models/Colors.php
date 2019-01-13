@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SellingStatus extends Model
+class Colors extends Model
 {
     //
 }

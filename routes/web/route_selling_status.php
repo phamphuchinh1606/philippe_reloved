@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/selling-status', 'SellingStatusController@index')->name('selling_status.index');
-Route::get('/selling-status/create', 'SellingStatusController@showCreate')->name('selling_status.create');
-Route::post('/selling-status/create', 'SellingStatusController@store')->name('selling_status.create');
-Route::get('/selling-status/edit/{id}', 'SellingStatusController@showEdit')->name('selling_status.edit');
-Route::post('/selling-status/edit/{id}', 'SellingStatusController@edit')->name('selling_status.edit');
-Route::get('/selling-status/delete/{id}', 'SellingStatusController@delete')->name('selling_status.delete');
+Route::get('/status', 'StatusController@index')->name('status.index');
+Route::get('/status/create', 'StatusController@showCreate')->name('status.create');
+Route::post('/status/create', 'StatusController@store')->name('status.create');
+Route::get('/status/edit/{id}', 'StatusController@showEdit')->name('status.edit');
+Route::post('/status/edit/{id}', 'StatusController@edit')->name('status.edit');
+Route::get('/status/delete/{id}', 'StatusController@delete')->name('status.delete');

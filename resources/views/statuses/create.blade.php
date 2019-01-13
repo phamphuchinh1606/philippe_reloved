@@ -1,7 +1,7 @@
 @extends('layouts.master')
-@section('title', 'Edit Selling Status')
+@section('title', 'Create Status')
 @section('body.breadcrumbs')
-    {{ Breadcrumbs::render('selling_status.edit',$status->name) }}
+    {{ Breadcrumbs::render('status.create') }}
 @stop
 @section('body.content')
     <div class="box">
@@ -12,7 +12,7 @@
         <div class="box-body">
             <div class="row">
                 <div class="col-sm-6 col-sm-push-3">
-                    <form role="form" method="post" action="{{route('selling_status.edit',['id' => $status->id])}}" enctype = "multipart/form-data">
+                    <form role="form" method="post" action="{{route('status.create')}}" enctype = "multipart/form-data">
                         {{ csrf_field() }}
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -32,8 +32,8 @@
                             </div>
                         @endif
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label>Type Name</label>
-                            <input name="name" value="{{ $status->name }}" type="text" class="form-control" placeholder="Enter ..." required>
+                            <label>Status Name</label>
+                            <input name="name" value="{{ old('name') }}" type="text" class="form-control" placeholder="Enter ..." required>
                             @if ($errors->has('name'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('name') }}</strong>
@@ -42,8 +42,8 @@
                         </div>
 
                         <div class="form-action">
-                            <a href="{{route('selling_status.delete',['id' => $status->id])}}" class="btn btn-danger">Delete</a>
-                            <button type="submit" class="btn btn-primary pull-right">Update</button>
+                            <a href="{{route('status.index')}}" class="btn btn-default">Cancel</a>
+                            <button type="submit" class="btn btn-primary pull-right">Create</button>
                         </div>
                         <!-- /.box-body -->
                     </form>

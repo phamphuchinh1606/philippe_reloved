@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStuffCategoriesTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateStuffCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('stuff_categories', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',45)->nullable();
-            $table->integer('level')->nullable();
-            $table->integer('parent_id')->nullable(true);
+            $table->string('tag_name',100)->nullable();
             $table->integer('delete_flg')->default(0);
             $table->timestamps();
-            $table->dateTime('deleted_at');
+            $table->dateTime('deleted_at')->nullable();
         });
     }
 
@@ -31,6 +29,6 @@ class CreateStuffCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stuff_categories');
+        Schema::dropIfExists('tags');
     }
 }

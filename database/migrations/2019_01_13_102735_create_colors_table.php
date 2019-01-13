@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateModelsTable extends Migration
+class CreateColorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('models', function (Blueprint $table) {
+        Schema::create('colors', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('brand_id')->nullable();
             $table->string('name',100)->nullable();
-            $table->string('description',500)->nullable();
-            $table->integer('year')->nullable();
-            $table->integer('value')->nullable();
             $table->integer('delete_flg')->default(0);
             $table->timestamps();
             $table->dateTime('deleted_at')->nullable();
@@ -33,6 +29,6 @@ class CreateModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('models');
+        Schema::dropIfExists('colors');
     }
 }

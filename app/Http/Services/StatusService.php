@@ -5,21 +5,21 @@ use Illuminate\Http\Request;
 use App\Common\Constant;
 use App\Common\AppCommon;
 use DB;
-use App\Models\SellingStatus;
+use App\Models\Status;
 
-class SellingStatusService extends BaseService
+class StatusService extends BaseService
 {
     public function getList(){
-        return $this->sellingStatusLogic->getAll();
+        return $this->statusLogic->getAll();
     }
 
     public function find($statusId){
-        return $this->sellingStatusLogic->find($statusId);
+        return $this->statusLogic->find($statusId);
     }
 
     private function getStatusInfo(Request $request, $status = null){
         if(!isset($status)){
-            $status = new SellingStatus();
+            $status = new Status();
         }
 
         if(isset($request->name)){
@@ -33,7 +33,7 @@ class SellingStatusService extends BaseService
         if(isset($status->name)){
             try{
                 DB::beginTransaction();
-                $status = $this->sellingStatusLogic->save($status);
+                $status = $this->statusLogic->save($status);
                 DB::commit();
 
             }catch (\Exception $ex){
@@ -44,18 +44,18 @@ class SellingStatusService extends BaseService
     }
 
     public function update($statusId, $request){
-        $statusDB = $this->sellingStatusLogic->find($statusId);
+        $statusDB = $this->statusLogic->find($statusId);
         if(isset($statusDB)){
             $status = $this->getStatusInfo($request,$statusDB);
-            $this->sellingStatusLogic->save($status);
+            $this->statusLogic->save($status);
         }
     }
 
     public function delete($statusId){
-        $status = $this->sellingStatusLogic->find($statusId);
+        $status = $this->statusLogic->find($statusId);
         if(isset($status)){
             $status->delete_flg = Constant::$DELETE_FLG_ON;
-            $this->sellingStatusLogic->save($status);
+            $this->statusLogic->save($status);
         }
     }
 }

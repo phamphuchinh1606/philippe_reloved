@@ -1,6 +1,6 @@
 <?php ?>
 @extends('layouts.master')
-@section('title', 'List Of Selling Status')
+@section('title', 'List Of Status')
 @section('javascript')
     <script src="{{ asset('js/admin/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/admin/dataTables.bootstrap.min.js') }}"></script>
@@ -20,13 +20,13 @@
     </script>
 @stop
 @section('body.breadcrumbs')
-    {{ Breadcrumbs::render('selling_status') }}
+    {{ Breadcrumbs::render('status') }}
 @stop
 @section('body.content')
     <div class="box box-list">
         <div class="box-header clearfix">
             <h3 class="box-title">@yield('title')</h3>
-            <a href="{{route('selling_status.create')}}" class="btn btn-md btn-primary pull-right"><i class="fa fa-plus"></i> New Status</a>
+            <a href="{{route('status.create')}}" class="btn btn-md btn-primary pull-right"><i class="fa fa-plus"></i> New Status</a>
         </div>
 
         <!-- /.box-header -->
@@ -65,7 +65,7 @@
                             </td>
                             <td class="actions text-center" style="width: 100px">
                                 {{--<a href="" class="btn btn-xs btn-success" title="View"><i class="fa fa-eye"></i></a>--}}
-                                <a href="{{route('selling_status.edit',['id'=>$status->id])}}" class="btn btn-xs btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
+                                <a href="{{route('status.edit',['id'=>$status->id])}}" class="btn btn-xs btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
 
                             </td>
                         </tr>

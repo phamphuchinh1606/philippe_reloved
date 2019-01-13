@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSellingStatusesTable extends Migration
+class CreateItemPhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateSellingStatusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('selling_statuses', function (Blueprint $table) {
+        Schema::create('item_photos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',45)->nullable();
-            $table->string('description',255)->nullable();
-            $table->integer('delete_flg')->default(0);
+            $table->integer('item_id')->nullable();
+            $table->string('label',100)->nullable();
+            $table->string('photo_src')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateSellingStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('selling_statuses');
+        Schema::dropIfExists('item_photos');
     }
 }
