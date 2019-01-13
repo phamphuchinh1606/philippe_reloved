@@ -80,5 +80,43 @@ Breadcrumbs::for('status.edit', function ($trail, $statusName) {
 });
 //========================End Status===============================================
 
+//Colors===================================================================
+Breadcrumbs::for('color', function ($trail) {
+    $trail->parent('home');
+    $trail->push('List Color', route('color.index'));
+});
+
+//Color Create
+Breadcrumbs::for('color.create', function ($trail) {
+    $trail->parent('color');
+    $trail->push('Create Color');
+});
+
+//Color Update
+Breadcrumbs::for('color.edit', function ($trail, $colorName) {
+    $trail->parent('color');
+    $trail->push($colorName);
+});
+//========================End Colors===============================================
+
+//Categories===================================================================
+Breadcrumbs::for('category', function ($trail) {
+    $trail->parent('home');
+    $trail->push('List Category', route('category.index'));
+});
+
+//Color Create
+Breadcrumbs::for('category.create', function ($trail) {
+    $trail->parent('category');
+    $trail->push('Create Category');
+});
+
+//Color Update
+Breadcrumbs::for('category.edit', function ($trail, $categoryName) {
+    $trail->parent('category');
+    $trail->push($categoryName);
+});
+//========================End Categories===============================================
+
 
 

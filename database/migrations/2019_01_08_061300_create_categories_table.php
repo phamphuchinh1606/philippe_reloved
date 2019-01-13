@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name',45)->nullable();
             $table->integer('delete_flg')->default(0);
             $table->timestamps();
-            $table->dateTime('deleted_at');
+            $table->dateTime('deleted_at')->nullable();
         });
     }
 

@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Services;
 
-use App\Http\Logics\{UserLogic, BrandLogic, ModelLogic, StatusLogic};
+use App\Http\Logics\{UserLogic, BrandLogic, ModelLogic, StatusLogic, ColorLogic, CategoryLogic, ProductLogic};
 
 class BaseService
 {
@@ -13,11 +13,21 @@ class BaseService
 
     protected $statusLogic;
 
-    public function __construct(UserLogic $userLogic, BrandLogic $brandLogic, ModelLogic $modelLogic, StatusLogic $statusLogic)
+    protected $colorLogic;
+
+    protected $categoryLogic;
+
+    protected $productLogic;
+
+    public function __construct(UserLogic $userLogic, BrandLogic $brandLogic, ModelLogic $modelLogic, StatusLogic $statusLogic,
+            ColorLogic $colorLogic, CategoryLogic $categoryLogic, ProductLogic $productLogic)
     {
         $this->userLogic = $userLogic;
         $this->brandLogic = $brandLogic;
         $this->modelLogic = $modelLogic;
         $this->statusLogic = $statusLogic;
+        $this->colorLogic = $colorLogic;
+        $this->categoryLogic = $categoryLogic;
+        $this->productLogic = $productLogic;
     }
 }

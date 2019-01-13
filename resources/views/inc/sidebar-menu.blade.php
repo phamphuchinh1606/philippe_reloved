@@ -38,8 +38,14 @@ $auth = Auth::user();
             <li class="{{ (Request::is('*models*') ? 'active' : '') }}">
                 <a href='{{route('model.index')}}'><i class="fa  fa-plane"></i><span>Models</span></a>
             </li>
-            <li class="{{ (Request::is('*selling-status*') ? 'active' : '') }}">
-                <a href="{{route('selling_status.index')}}"><i class="fa fa-shield"></i><span>Status</span></a>
+            <li class="{{ (Request::is('*status*') ? 'active' : '') }}">
+                <a href="{{route('status.index')}}"><i class="fa fa-shield"></i><span>Status</span></a>
+            </li>
+            <li class="{{ (Request::is('*colors*') ? 'active' : '') }}">
+                <a href="{{route('color.index')}}"><i class="fa fa-shield"></i><span>Colors</span></a>
+            </li>
+            <li class="{{ (Request::is('*categories*') ? 'active' : '') }}">
+                <a href="{{route('category.index')}}"><i class="fa fa-shield"></i><span>Categories</span></a>
             </li>
             {{--Product--}}
             {{--<li class="{{ (Request::is('*actions*') ? 'active' : '') }}">--}}
