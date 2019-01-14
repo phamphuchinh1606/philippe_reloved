@@ -27,18 +27,18 @@ class ProductController extends Controller
     }
 
     public function showEdit($id){
-        $brands = $this->brandService->getList();
-        $model = $this->productService->find($id);
-        return $this->showView('edit',['brands' => $brands, 'model' => $model]);
+        $productLevelOne = $this->productService->getList(array('level' => 0));
+        $product = $this->productService->find($id);
+        return $this->showView('edit',['product' => $product, 'productLevelOne' => $productLevelOne]);
     }
 
     public function edit($id, Request $request){
         $this->productService->update($id,$request);
-        return redirect()->route('model.index')->with('success', 'Model was edit successfully.');
+        return redirect()->route('product.index')->with('success', 'Product was edit successfully.');
     }
 
     public function delete($id){
         $this->productService->delete($id);
-        return redirect()->route('model.index')->with('success', 'Model was delete successfully.');
+        return redirect()->route('product.index')->with('success', 'Product was delete successfully.');
     }
 }

@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name',100)->nullable();
             $table->integer('level')->nullable()->default(0);
+            $table->integer('parent_id')->nullable();
             $table->integer('delete_flg')->default(0);
             $table->timestamps();
             $table->dateTime('deleted_at')->nullable();

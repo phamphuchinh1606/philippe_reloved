@@ -25,14 +25,11 @@ class ProductService extends BaseService
         if(isset($request->name)){
             $product->name = $request->name;
         }
-        if(isset($request->year)){
-            $product->year = $request->year;
+        if(isset($request->level)){
+            $product->level = $request->level;
         }
-        if(isset($request->description)){
-            $product->description = $request->description;
-        }
-        if(isset($request->brand_id)){
-            $product->brand_id = $request->brand_id;
+        if(isset($request->parent_id)){
+            $product->parent_id = $request->parent_id;
         }
         return $product;
     }

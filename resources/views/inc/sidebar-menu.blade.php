@@ -47,6 +47,9 @@ $auth = Auth::user();
             <li class="{{ (Request::is('*categories*') ? 'active' : '') }}">
                 <a href="{{route('category.index')}}"><i class="fa fa-shield"></i><span>Categories</span></a>
             </li>
+            <li class="{{ (Request::is('*products*') ? 'active' : '') }}">
+                <a href="{{route('product.index')}}"><i class="fa fa-shield"></i><span>Products</span></a>
+            </li>
             {{--Product--}}
             {{--<li class="{{ (Request::is('*actions*') ? 'active' : '') }}">--}}
                 {{--<a href="{{route('action.index')}}"><i class="fa fa-shield"></i><span>Actions</span></a>--}}
