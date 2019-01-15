@@ -1,13 +1,13 @@
 
 @extends('layouts.master')
-@section('title', 'Update Product')
+@section('title', 'Create Item')
 @section('body.breadcrumbs')
     {{ Breadcrumbs::render('model.create') }}
 @stop
 
 @section('body.content')
 
-    <form role="form" method="post" action="{{route('product.edit',['id' => $product->id])}}" enctype="multipart/form-data">
+    <form role="form" method="post" action="{{route('item.edit',['id' => $item->id])}}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="row">
             <div class="col-md-8">
@@ -15,7 +15,7 @@
                 <div class="box box-success">
                     <div class="box-header with-border">
                         <h3 class="box-title">@yield('title')</h3>
-                        <a href="{{route('product.index')}}" class="btn btn-xs btn-default pull-right"><i class="fa fa-angle-left"></i> Back to list</a>
+                        <a href="{{route('item.index')}}" class="btn btn-xs btn-default pull-right"><i class="fa fa-angle-left"></i> Back to list</a>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -34,14 +34,24 @@
                             </div>
                         @endif
                         <div class="row">
-                            <div class="col-xs-12">
-                                <!-- text input -->
-                                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <div class="col-xs-6">
+                                <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                                     <label>Name</label>
-                                    <input name="name" value="{{$product->name}}" type="text" class="form-control" placeholder="Enter ..." required>
-                                    @if ($errors->has('name'))
+                                    <input name="title" value="{{$item->title}}" type="text" class="form-control" placeholder="Enter ..." required>
+                                    @if ($errors->has('title'))
                                         <span class="help-block">
-                                                <strong>{{ $errors->first('name') }}</strong>
+                                                <strong>{{ $errors->first('title') }}</strong>
+                                            </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group{{ $errors->has('brand_id') ? ' has-error' : '' }}">
+                                    <label class="col-form-label" for="brand_id">Brand</label>
+                                    @include('commons.brands.__select_brand',['selectName' => 'brand_id','defaultValue' => $item->brand_id])
+                                    @if ($errors->has('brand_id'))
+                                        <span class="help-block">
+                                                <strong>{{ $errors->first('brand_id') }}</strong>
                                             </span>
                                     @endif
                                 </div>
@@ -49,33 +59,93 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-6">
-                                <!-- text input -->
-                                <div class="form-group{{ $errors->has('level') ? ' has-error' : '' }}">
-                                    <label>Name</label>
-                                    <input name="level" value="{{$product->level}}" type="number" min="0" max="1" class="form-control" placeholder="Enter ..." required>
-                                    @if ($errors->has('level'))
+                                <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
+                                    <label class="col-form-label" for="category_id">Category</label>
+                                    @include('commons.categories.__select_category',['selectName' => 'category_id','defaultValue' => $item->category_id])
+                                    @if ($errors->has('category_id'))
                                         <span class="help-block">
-                                            <strong>{{ $errors->first('level') }}</strong>
+                                                <strong>{{ $errors->first('category_id') }}</strong>
+                                            </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group{{ $errors->has('color_id') ? ' has-error' : '' }}">
+                                    <label class="col-form-label" for="category_id">Color</label>
+                                    @include('commons.colors.__select_color',['selectName' => 'color_id','defaultValue' => $item->color_id])
+                                    @if ($errors->has('color_id'))
+                                        <span class="help-block">
+                                                <strong>{{ $errors->first('color_id') }}</strong>
+                                            </span>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group{{ $errors->has('product_id') ? ' has-error' : '' }}">
+                                    <label class="col-form-label" for="product_id">Product</label>
+                                    @include('commons.products.__select_product',['selectName' => 'product_id','defaultValue' => $item->product_id])
+                                    @if ($errors->has('product_id'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('product_id') }}</strong>
                                         </span>
                                     @endif
                                 </div>
                             </div>
                             <div class="col-xs-6">
-                                <div class="form-group">
-                                    <label>Parent Product</label>
-                                    <select name="parent_id" class="form-control">
-                                        <option value="" disabled="" selected="">Please pick a product</option>
-                                        @foreach($productLevelOne as $productItem)
-                                            <option value="{{$productItem->id}}" @if($product->parent_id == $productItem->id) selected @endif>{{$productItem->name}}</option>
-                                        @endforeach
-                                    </select>
+                                <div class="form-group{{ $errors->has('status_id') ? ' has-error' : '' }}">
+                                    <label class="col-form-label" for="status_id">Status</label>
+                                    @include('commons.status.__select_status',['selectName' => 'status_id','defaultValue' => $item->status_id])
+                                    @if ($errors->has('status_id'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('status_id') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group{{ $errors->has('model') ? ' has-error' : '' }}">
+                                    <label>Model</label>
+                                    <input name="model" value="{{$item->model}}" type="text" class="form-control" placeholder="Enter ..." required>
+                                    @if ($errors->has('model'))
+                                        <span class="help-block">
+                                    <strong>{{ $errors->first('model') }}</strong>
+                                </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group{{ $errors->has('bought_price') ? ' has-error' : '' }}">
+                                    <label>Bought Price</label>
+                                    <input name="bought_price" value="{{$item->bought_price}}" type="text" class="form-control" placeholder="Enter ..." required>
+                                    @if ($errors->has('bought_price'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('bought_price') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                                    <label>Description</label>
+                                    <textarea name="description" class="form-control" rows="4" placeholder="Enter ..." required>{{$item->description}}</textarea>
+                                    @if ($errors->has('description'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('bought_price') }}</strong>
+                                    </span>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{route('product.delete',['id' => $product->id])}}" class="btn btn-danger">Delete</a>
+                        <a href="{{route('item.delete',['id' => $item->id])}}" class="btn btn-danger">Delete</a>
                         <button type="submit" class="btn btn-primary pull-right">Update</button>
                     </div>
                 </div>

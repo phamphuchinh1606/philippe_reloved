@@ -1,6 +1,6 @@
 <?php ?>
 @extends('layouts.master')
-@section('title', 'List Of Product')
+@section('title', 'List Of Item')
 @section('javascript')
     <script src="{{ asset('js/admin/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/admin/dataTables.bootstrap.min.js') }}"></script>
@@ -26,7 +26,7 @@
     <div class="box box-list">
         <div class="box-header clearfix">
             <h3 class="box-title">@yield('title')</h3>
-            <a href="{{route('product.create')}}" class="btn btn-md btn-primary pull-right"><i class="fa fa-plus"></i> New Product</a>
+            <a href="{{route('item.create')}}" class="btn btn-md btn-primary pull-right"><i class="fa fa-plus"></i> New Item</a>
         </div>
 
         <!-- /.box-header -->
@@ -42,35 +42,49 @@
                     <thead>
                     <tr>
                         <th>No.</th>
-                        <td>Product Name</td>
-                        <th>Level</th>
-                        <th>Parent Name</th>
-                        <th>Created at</th>
+                        <th>Title</th>
+                        <th>Brand</th>
+                        <th>Category</th>
+                        <th>Color</th>
+                        <th>Status</th>
+                        <th>Bought Price</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($products as $key => $product)
+                    @foreach($items as $key => $item)
                         <tr>
                             <td width="40" align="center">
                                 {{$key+1}}
                             </td>
                             <td>
-                                {{$product->name}}
+                                {{$item->title}}
                             </td>
                             <td>
-                                {{$product->level}}
-                            </td>
-                            <td>
-                                @if(isset($product->parent))
-                                    {{$product->parent->name}}
+                                @if(isset($item->brand))
+                                    {{$item->brand->name}}
                                 @endif
                             </td>
                             <td>
-                                {{$product->created_at}}
+                                @if(isset($item->category))
+                                    {{$item->category->name}}
+                                @endif
+                            </td>
+                            <td>
+                                @if(isset($item->color))
+                                    {{$item->color->name}}
+                                @endif
+                            </td>
+                            <td>
+                                @if(isset($item->status))
+                                    {{$item->status->name}}
+                                @endif
+                            </td>
+                            <td>
+                                {{\App\Common\AppCommon::formatMoney($item->bought_price)}}
                             </td>
                             <td class="actions text-center" style="width: 100px">
-                                <a href="{{route('product.edit',['id'=> $product->id])}}" class="btn btn-xs btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
+                                <a href="{{route('item.edit',['id'=> $item->id])}}" class="btn btn-xs btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
 
                             </td>
                         </tr>

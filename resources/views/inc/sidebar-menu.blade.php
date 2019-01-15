@@ -22,43 +22,69 @@ $auth = Auth::user();
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">APP</li>
-            <!-- Optionally, you can add icons to the links -->
-            {{--<li class="{{ (Request::is('*dashboard*') || Request::is('/') ? 'active' : '') }}">--}}
-                {{--<a href="{{route('dashboard')}}">--}}
-                    {{--<i class="fa fa-home"></i><span>HOME</span>--}}
-                {{--</a>--}}
-            {{--</li>--}}
+            <li class="active treeview menu-open">
+                <a href="#">
+                    <span>Sales</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu" style="">
+                    <li class="{{ (Request::is('*brands*') ? 'active' : '') }}">
+                        <a href="{{route('brand.index')}}"><i class="fa fa-bandcamp"></i><span>Submitted items</span></a>
+                    </li>
+                    <li class="{{ (Request::is('*models*') ? 'active' : '') }}">
+                        <a href='{{route('model.index')}}'><i class="fa  fa-plane"></i><span>On Sale items</span></a>
+                    </li>
+                    <li class="{{ (Request::is('*categories*') ? 'active' : '') }}">
+                        <a href="{{route('category.index')}}"><i class="fa fa-shield"></i><span>Sold items</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="active treeview menu-open">
+                <a href="#">
+                    <span>App</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu" style="">
+                    <li class="{{ (Request::is('*products*') ? 'active' : '') }}">
+                        <a href="{{route('product.index')}}"><i class="fa fa-shield"></i><span>Products</span></a>
+                    </li>
+                    <li class="{{ (Request::is('*items*') ? 'active' : '') }}">
+                        <a href="{{route('item.index')}}"><i class="fa fa-shield"></i><span>Items</span></a>
+                    </li>
+                </ul>
+            </li>
             <li class="{{ (Request::is('*users*') ? 'active' : '') }}">
                 <a href="{{route('user.index')}}"><i class="fa fa-users"></i><span>Users</span></a>
             </li>
-            <li class="{{ (Request::is('*brands*') ? 'active' : '') }}">
-                <a href="{{route('brand.index')}}"><i class="fa fa-bandcamp"></i><span>Brands</span></a>
+            <li class="active treeview menu-open">
+                <a href="#">
+                    <span>References</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu" style="">
+                    <li class="{{ (Request::is('*brands*') ? 'active' : '') }}">
+                        <a href="{{route('brand.index')}}"><i class="fa fa-bandcamp"></i><span>Brands</span></a>
+                    </li>
+                    <li class="{{ (Request::is('*models*') ? 'active' : '') }}">
+                        <a href='{{route('model.index')}}'><i class="fa  fa-plane"></i><span>Models</span></a>
+                    </li>
+                    <li class="{{ (Request::is('*categories*') ? 'active' : '') }}">
+                        <a href="{{route('category.index')}}"><i class="fa fa-shield"></i><span>Categories</span></a>
+                    </li>
+                    <li class="{{ (Request::is('*colors*') ? 'active' : '') }}">
+                        <a href="{{route('color.index')}}"><i class="fa fa-shield"></i><span>Colors</span></a>
+                    </li>
+                    <li class="{{ (Request::is('*status*') ? 'active' : '') }}">
+                        <a href="{{route('status.index')}}"><i class="fa fa-shield"></i><span>Status</span></a>
+                    </li>
+                </ul>
             </li>
-            <li class="{{ (Request::is('*models*') ? 'active' : '') }}">
-                <a href='{{route('model.index')}}'><i class="fa  fa-plane"></i><span>Models</span></a>
-            </li>
-            <li class="{{ (Request::is('*status*') ? 'active' : '') }}">
-                <a href="{{route('status.index')}}"><i class="fa fa-shield"></i><span>Status</span></a>
-            </li>
-            <li class="{{ (Request::is('*colors*') ? 'active' : '') }}">
-                <a href="{{route('color.index')}}"><i class="fa fa-shield"></i><span>Colors</span></a>
-            </li>
-            <li class="{{ (Request::is('*categories*') ? 'active' : '') }}">
-                <a href="{{route('category.index')}}"><i class="fa fa-shield"></i><span>Categories</span></a>
-            </li>
-            <li class="{{ (Request::is('*products*') ? 'active' : '') }}">
-                <a href="{{route('product.index')}}"><i class="fa fa-shield"></i><span>Products</span></a>
-            </li>
-            {{--Product--}}
-            {{--<li class="{{ (Request::is('*actions*') ? 'active' : '') }}">--}}
-                {{--<a href="{{route('action.index')}}"><i class="fa fa-shield"></i><span>Actions</span></a>--}}
-            {{--</li>--}}
-            {{--<li class="{{ (Request::is('*event-beat*') ? 'active' : '') }}">--}}
-                {{--<a href="{{route('event_beat.index')}}"><i class="fa fa-calendar" aria-hidden="true"></i><span>Event Beats</span></a>--}}
-            {{--</li>--}}
-
-
         </ul>
         <!-- /.sidebar-menu -->
     </section>

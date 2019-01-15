@@ -27,7 +27,7 @@ class CreateItemsTable extends Migration
             $table->integer('status_id')->nullable();
             $table->integer('delete_flg')->default(0);
             $table->timestamps();
-            $table->dateTime('deleted_at');
+            $table->dateTime('deleted_at')->nullable();
         });
     }
 

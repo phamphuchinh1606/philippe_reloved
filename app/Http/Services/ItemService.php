@@ -22,14 +22,35 @@ class ItemService extends BaseService
             $item = new Item();
         }
 
-        if(isset($request->name)){
-            $item->name = $request->name;
+        if(isset($request->title)){
+            $item->title = $request->title;
         }
-        if(isset($request->level)){
-            $item->level = $request->level;
+        if(isset($request->description)){
+            $item->description = $request->description;
         }
-        if(isset($request->parent_id)){
-            $item->parent_id = $request->parent_id;
+        if(isset($request->model)){
+            $item->model = $request->model;
+        }
+        if(isset($request->bought_price)){
+            $item->bought_price = $request->bought_price;
+        }
+        if(isset($request->brand_id)){
+            $item->brand_id = $request->brand_id;
+        }
+        if(isset($request->user_id)){
+            $item->user_id = $request->user_id;
+        }
+        if(isset($request->status_id)){
+            $item->status_id = $request->status_id;
+        }
+        if(isset($request->color_id)){
+            $item->color_id = $request->color_id;
+        }
+        if(isset($request->category_id)){
+            $item->category_id = $request->category_id;
+        }
+        if(isset($request->product_id)){
+            $item->product_id = $request->product_id;
         }
         return $item;
     }
@@ -43,6 +64,7 @@ class ItemService extends BaseService
                 DB::commit();
             }catch (\Exception $ex){
                 DB::rollBack();
+                dd($ex);
             }
         }
         return $item;
