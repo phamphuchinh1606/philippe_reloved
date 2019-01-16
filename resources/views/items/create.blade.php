@@ -2,7 +2,7 @@
 @extends('layouts.master')
 @section('title', 'Create Item')
 @section('body.breadcrumbs')
-    {{ Breadcrumbs::render('model.create') }}
+    {{ Breadcrumbs::render('item.create') }}
 @stop
 
 @section('body.content')
@@ -120,7 +120,7 @@
                             <div class="col-xs-6">
                                 <div class="form-group{{ $errors->has('bought_price') ? ' has-error' : '' }}">
                                     <label>Bought Price</label>
-                                    <input name="bought_price" value="{{old('bought_price')}}" type="text" class="form-control" placeholder="Enter ..." required>
+                                    <input name="bought_price" value="{{old('bought_price')}}" type="number" class="form-control" placeholder="Enter ..." required>
                                     @if ($errors->has('bought_price'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('bought_price') }}</strong>

@@ -1,6 +1,6 @@
 <?php ?>
 @extends('layouts.master')
-@section('title', 'List Of Item')
+@section('title', 'List Of Tag')
 @section('javascript')
     <script src="{{ asset('js/admin/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/admin/dataTables.bootstrap.min.js') }}"></script>
@@ -20,13 +20,13 @@
     </script>
 @stop
 @section('body.breadcrumbs')
-    {{ Breadcrumbs::render('item') }}
+    {{ Breadcrumbs::render('tag') }}
 @stop
 @section('body.content')
     <div class="box box-list">
         <div class="box-header clearfix">
             <h3 class="box-title">@yield('title')</h3>
-            <a href="{{route('item.create')}}" class="btn btn-md btn-primary pull-right"><i class="fa fa-plus"></i> New Item</a>
+            <a href="{{route('tag.create')}}" class="btn btn-md btn-primary pull-right"><i class="fa fa-plus"></i> New Tag</a>
         </div>
 
         <!-- /.box-header -->
@@ -42,53 +42,33 @@
                     <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Title</th>
-                        <th>Brand</th>
-                        <th>Category</th>
-                        <th>Color</th>
-                        <th>Status</th>
-                        <th>Bought Price</th>
+                        <th>Tag Name</th>
+                        <th>Create Date</th>
+                        <th>Update Date</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($items as $key => $item)
+                    @foreach($tags as $key => $tag)
                         <tr>
                             <td width="40" align="center">
                                 {{$key+1}}
                             </td>
                             <td>
-                                {{$item->title}}
+                                {{$tag->tag_name}}
                             </td>
                             <td>
-                                @if(isset($item->brand))
-                                    {{$item->brand->name}}
-                                @endif
+                                {{$tag->created_at}}
                             </td>
                             <td>
-                                @if(isset($item->category))
-                                    {{$item->category->name}}
-                                @endif
-                            </td>
-                            <td>
-                                @if(isset($item->color))
-                                    {{$item->color->name}}
-                                @endif
-                            </td>
-                            <td>
-                                @if(isset($item->status))
-                                    {{$item->status->name}}
-                                @endif
-                            </td>
-                            <td>
-                                {{\App\Common\AppCommon::formatMoney($item->bought_price)}}
+                                {{$tag->updated_at}}
                             </td>
                             <td class="actions text-center" style="width: 100px">
-                                <a href="{{route('item.edit',['id'=> $item->id])}}" class="btn btn-xs btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
+                                <a href="{{route('tag.edit',['id'=>$tag->id])}}" class="btn btn-xs btn-info" title="Edit"><i class="fa fa-pencil"></i></a>
+
                             </td>
                         </tr>
                     @endforeach
-
                     </tbody>
                 </table>
             </div>

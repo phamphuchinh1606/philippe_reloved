@@ -118,5 +118,41 @@ Breadcrumbs::for('category.edit', function ($trail, $categoryName) {
 });
 //========================End Categories===============================================
 
+//Item===================================================================
+Breadcrumbs::for('item', function ($trail) {
+    $trail->parent('home');
+    $trail->push('List Item', route('item.index'));
+});
 
+//Item Create
+Breadcrumbs::for('item.create', function ($trail) {
+    $trail->parent('item');
+    $trail->push('Create Item');
+});
+
+//Item Update
+Breadcrumbs::for('item.edit', function ($trail, $itemName) {
+    $trail->parent('item');
+    $trail->push($itemName);
+});
+//========================End Item===============================================
+
+//Tag===================================================================
+Breadcrumbs::for('tag', function ($trail) {
+    $trail->parent('home');
+    $trail->push('List Tag', route('tag.index'));
+});
+
+//Item Create
+Breadcrumbs::for('tag.create', function ($trail) {
+    $trail->parent('tag');
+    $trail->push('Create Tag');
+});
+
+//Item Update
+Breadcrumbs::for('tag.edit', function ($trail, $tagName) {
+    $trail->parent('tag');
+    $trail->push($tagName);
+});
+//========================End Tag===============================================
 

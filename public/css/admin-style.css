@@ -27,6 +27,11 @@ tr.message__read{
 .sidebar-menu li>a{
     text-transform: uppercase;
 }
+.sidebar-menu li.header{
+    font-weight: bold;
+    color: #ffff;
+    font-size: 18px;
+}
 .sidebar-menu>li>.treeview-menu > li{
     padding-left: 32px;
 }

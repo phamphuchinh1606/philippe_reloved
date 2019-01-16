@@ -6,7 +6,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use App\Http\Services\{UserService,BrandService,ModelService, StatusService, ColorService, CategoryService, ProductService, ItemService};
+use App\Http\Services\{UserService,BrandService,ModelService, StatusService, ColorService, CategoryService, ProductService, ItemService,
+        ItemPhotoService, TagService};
 
 class Controller extends BaseController
 {
@@ -28,8 +29,13 @@ class Controller extends BaseController
 
     protected $itemService;
 
+    protected $itemPhotoService;
+
+    protected $tagService;
+
     public function __construct(UserService $userService, BrandService $brandService, ModelService $modelService, StatusService $statusService,
-            ColorService $colorService, CategoryService $categoryService, ProductService $productService, ItemService $itemService)
+            ColorService $colorService, CategoryService $categoryService, ProductService $productService, ItemService $itemService,
+            ItemPhotoService $itemPhotoService, TagService $tagService)
     {
         $this->userService = $userService;
         $this->brandService = $brandService;
@@ -39,5 +45,7 @@ class Controller extends BaseController
         $this->categoryService = $categoryService;
         $this->productService = $productService;
         $this->itemService = $itemService;
+        $this->itemPhotoService = $itemPhotoService;
+        $this->tagService = $tagService;
     }
 }

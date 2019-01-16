@@ -22,68 +22,52 @@ $auth = Auth::user();
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="active treeview menu-open">
-                <a href="#">
-                    <span>Sales</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu" style="">
-                    <li class="{{ (Request::is('*brands*') ? 'active' : '') }}">
-                        <a href="{{route('brand.index')}}"><i class="fa fa-bandcamp"></i><span>Submitted items</span></a>
-                    </li>
-                    <li class="{{ (Request::is('*models*') ? 'active' : '') }}">
-                        <a href='{{route('model.index')}}'><i class="fa  fa-plane"></i><span>On Sale items</span></a>
-                    </li>
-                    <li class="{{ (Request::is('*categories*') ? 'active' : '') }}">
-                        <a href="{{route('category.index')}}"><i class="fa fa-shield"></i><span>Sold items</span></a>
-                    </li>
-                </ul>
+            <li class="header">
+                Sales
             </li>
-            <li class="active treeview menu-open">
-                <a href="#">
-                    <span>App</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu" style="">
-                    <li class="{{ (Request::is('*products*') ? 'active' : '') }}">
-                        <a href="{{route('product.index')}}"><i class="fa fa-shield"></i><span>Products</span></a>
-                    </li>
-                    <li class="{{ (Request::is('*items*') ? 'active' : '') }}">
-                        <a href="{{route('item.index')}}"><i class="fa fa-shield"></i><span>Items</span></a>
-                    </li>
-                </ul>
+            <li class="{{ (Request::is('*brands*') ? 'active' : '') }}">
+                <a href="{{route('brand.index')}}"><i class="fa fa-suitcase"></i><span>Submitted items</span></a>
             </li>
+            <li class="{{ (Request::is('*models*') ? 'active' : '') }}">
+                <a href='{{route('model.index')}}'><i class="fa fa-share-alt-square"></i><span>On Sale items</span></a>
+            </li>
+            <li class="{{ (Request::is('*categories*') ? 'active' : '') }}">
+                <a href="{{route('category.index')}}"><i class="fa fa-caret-square-o-left"></i><span>Sold items</span></a>
+            </li>
+            <li class="header">
+                App
+            </li>
+            <li class="{{ (Request::is('*products*') ? 'active' : '') }}">
+                <a href="{{route('product.index')}}"><i class="fa fa-product-hunt"></i><span>Products</span></a>
+            </li>
+            <li class="{{ (Request::is('*items*') ? 'active' : '') }}">
+                <a href="{{route('item.index')}}"><i class="fa fa-sitemap"></i><span>Items</span></a>
+            </li>
+
             <li class="{{ (Request::is('*users*') ? 'active' : '') }}">
                 <a href="{{route('user.index')}}"><i class="fa fa-users"></i><span>Users</span></a>
             </li>
-            <li class="active treeview menu-open">
-                <a href="#">
-                    <span>References</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu" style="">
-                    <li class="{{ (Request::is('*brands*') ? 'active' : '') }}">
-                        <a href="{{route('brand.index')}}"><i class="fa fa-bandcamp"></i><span>Brands</span></a>
-                    </li>
-                    <li class="{{ (Request::is('*models*') ? 'active' : '') }}">
-                        <a href='{{route('model.index')}}'><i class="fa  fa-plane"></i><span>Models</span></a>
-                    </li>
-                    <li class="{{ (Request::is('*categories*') ? 'active' : '') }}">
-                        <a href="{{route('category.index')}}"><i class="fa fa-shield"></i><span>Categories</span></a>
-                    </li>
-                    <li class="{{ (Request::is('*colors*') ? 'active' : '') }}">
-                        <a href="{{route('color.index')}}"><i class="fa fa-shield"></i><span>Colors</span></a>
-                    </li>
-                    <li class="{{ (Request::is('*status*') ? 'active' : '') }}">
-                        <a href="{{route('status.index')}}"><i class="fa fa-shield"></i><span>Status</span></a>
-                    </li>
-                </ul>
+
+            <li class="header">
+                References
+            </li>
+            <li class="{{ (Request::is('*brands*') ? 'active' : '') }}">
+                <a href="{{route('brand.index')}}"><i class="fa fa-bandcamp"></i><span>Brands</span></a>
+            </li>
+            <li class="{{ (Request::is('*models*') ? 'active' : '') }}">
+                <a href='{{route('model.index')}}'><i class="fa fa-plane"></i><span>Models</span></a>
+            </li>
+            <li class="{{ (Request::is('*categories*') ? 'active' : '') }}">
+                <a href="{{route('category.index')}}"><i class="fa fa-shield"></i><span>Categories</span></a>
+            </li>
+            <li class="{{ (Request::is('*colors*') ? 'active' : '') }}">
+                <a href="{{route('color.index')}}"><i class="fa fa-cog"></i><span>Colors</span></a>
+            </li>
+            <li class="{{ (Request::is('*status*') ? 'active' : '') }}">
+                <a href="{{route('status.index')}}"><i class="fa fa-scribd"></i><span>Status</span></a>
+            </li>
+            <li class="{{ (Request::is('*tags*') ? 'active' : '') }}">
+                <a href="{{route('tag.index')}}"><i class="fa fa-tags"></i><span>Tags</span></a>
             </li>
         </ul>
         <!-- /.sidebar-menu -->

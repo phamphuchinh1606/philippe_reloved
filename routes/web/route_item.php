@@ -17,3 +17,7 @@ Route::post('/items/create', 'ItemController@store')->name('item.create');
 Route::get('/items/edit/{id}', 'ItemController@showEdit')->name('item.edit');
 Route::post('/items/edit/{id}', 'ItemController@edit')->name('item.edit');
 Route::get('/items/delete/{id}', 'ItemController@delete')->name('item.delete');
+
+//Item Photo
+Route::post('/item-photo/create/{itemId}', 'ItemPhotoController@create')->name('item_photo.create');
+Route::get('/item-photo/delete/{itemId}/{id}', 'ItemPhotoController@delete')->name('item_photo.delete');

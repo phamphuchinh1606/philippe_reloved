@@ -23,7 +23,8 @@ class Constant{
     public static $API_NAME_INSTAGRAM = 'instagram';
 
     public static $PATH_FOLDER_UPLOAD_USER = "users";
-//    public static $PATH_URL_UPLOAD_IMAGE = "storage/";
-    public static $PATH_URL_UPLOAD_IMAGE = "storage/app/public/";
+    public static $PATH_FOLDER_UPLOAD_ITEM_PHOTO = "item_photo";
+    public static $PATH_URL_UPLOAD_IMAGE = "storage/";
+//    public static $PATH_URL_UPLOAD_IMAGE = "storage/app/public/";
 
 }

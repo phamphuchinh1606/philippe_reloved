@@ -62,8 +62,8 @@ class ImageCommon{
         return $destinationPath.'/'.$filename;
     }
 
-    public static function moveImageBuilding(UploadedFile $file, $productId){
-        return AppCommon::moveImage($file, Constant::$PATH_FOLDER_UPLOAD_BUILDING.'/'.$productId);
+    public static function moveImageItemPhoto(UploadedFile $file, $itemId){
+        return AppCommon::moveImage($file, Constant::$PATH_FOLDER_UPLOAD_ITEM_PHOTO.'/'.$itemId);
     }
 
     public static function moveImageBuildingThumbnail(UploadedFile $file, $productId){

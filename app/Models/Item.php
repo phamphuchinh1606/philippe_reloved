@@ -21,4 +21,8 @@ class Item extends Model
     public function status(){
         return $this->belongsTo('App\Models\Status','status_id');
     }
+
+    public function photos(){
+        return $this->hasMany('App\Models\ItemPhoto','item_id');
+    }
 }

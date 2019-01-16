@@ -64,7 +64,6 @@ class ItemService extends BaseService
                 DB::commit();
             }catch (\Exception $ex){
                 DB::rollBack();
-                dd($ex);
             }
         }
         return $item;
