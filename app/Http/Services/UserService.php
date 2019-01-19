@@ -5,6 +5,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Common\Constant;
 use App\Common\AppCommon;
+use App\Models\SocialAccount;
 use DB;
 
 class UserService extends BaseService
@@ -84,6 +85,59 @@ class UserService extends BaseService
         if(isset($user)){
             $user->delete_flg = Constant::$DELETE_FLG_ON;
             $this->userLogic->save($user);
+        }
+    }
+
+    public function findSocialAccount($provider, $providerUserId){
+        $account = $this->socialAccountLogic->findSocialAccount($provider, $providerUserId);
+        if ($account) {
+            return $account->user;
+        }
+        return null;
+    }
+
+    public function findUserByEmail($email){
+        return $this->userLogic->findByEmail($email);
+    }
+
+    public function createUserFromSocial(Request $request){
+        $provider = $request->provider;
+        $providerUserId = $request->provider_user_id;
+        $accessToken = $request->access_token;
+        $account = $this->socialAccountLogic->findSocialAccount($provider, $providerUserId);
+        if ($account) {
+           return $account->user;
+        }else{
+            try {
+                DB::beginTransaction();
+                $account = new SocialAccount([
+                    'provider_user_id' => $providerUserId,
+                    'provider' => $provider,
+                    'access_token' => $accessToken
+                ]);
+                $email = $request->email;
+                if(isset($email)){
+                    $user = User::whereEmail($email)->first();
+                }
+                if(!isset($user)){
+                    $user = new User();
+                    $user->is_active = Constant::$ACTIVE_FLG_ON;
+                    $user->email = $email;
+                    $user->full_name = $request->full_name;
+                    $user->city = $request->city;
+                    $user->password = bcrypt("pass_app_relove");
+                    $user = $this->userLogic->save($user);
+                }
+                //Save social
+                $account->user()->associate($user);
+                $this->socialAccountLogic->save($account);
+
+                DB::commit();
+                return $user;
+            }catch (\Exception $ex){
+                DB::rollBack();
+                throw $ex;
+            }
         }
     }
 }

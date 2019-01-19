@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Http\Services\{UserService,BrandService,ModelService, StatusService, ColorService, CategoryService, ProductService, ItemService,
-        ItemPhotoService, TagService};
+    ItemPhotoService, TagService};
 
 class Controller extends BaseController
 {
@@ -34,8 +34,8 @@ class Controller extends BaseController
     protected $tagService;
 
     public function __construct(UserService $userService, BrandService $brandService, ModelService $modelService, StatusService $statusService,
-            ColorService $colorService, CategoryService $categoryService, ProductService $productService, ItemService $itemService,
-            ItemPhotoService $itemPhotoService, TagService $tagService)
+                                ColorService $colorService, CategoryService $categoryService, ProductService $productService, ItemService $itemService,
+                                ItemPhotoService $itemPhotoService, TagService $tagService)
     {
         $this->userService = $userService;
         $this->brandService = $brandService;

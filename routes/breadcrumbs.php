@@ -137,6 +137,25 @@ Breadcrumbs::for('item.edit', function ($trail, $itemName) {
 });
 //========================End Item===============================================
 
+//Sale Item===================================================================
+Breadcrumbs::for('sale_item', function ($trail) {
+    $trail->parent('home');
+    $trail->push('List Item', route('sale_item.index'));
+});
+
+//Sale Item Create
+Breadcrumbs::for('sale_item.create', function ($trail) {
+    $trail->parent('sale_item');
+    $trail->push('Create Item');
+});
+
+//Sale Item Update
+Breadcrumbs::for('sale_item.edit', function ($trail, $itemName) {
+    $trail->parent('sale_item');
+    $trail->push($itemName);
+});
+//========================End Sale Item===============================================
+
 //Tag===================================================================
 Breadcrumbs::for('tag', function ($trail) {
     $trail->parent('home');

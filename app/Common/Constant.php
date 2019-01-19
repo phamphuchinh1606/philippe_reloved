@@ -11,6 +11,11 @@ class Constant{
     public static $PUBLIC_FLG_OFF = 0;
     public static $PUBLIC_FLG_OFF_NAME = "UnPublic";
 
+    public static $ACTIVE_FLG_ON = 1;
+    public static $ACTIVE_FLG_ON_NAME = "Active";
+    public static $ACTIVE_FLG_OFF = 0;
+    public static $ACTIVE_FLG_OFF_NAME = "UnActive";
+
     //path image
     public static $PATH__IMAGE = "images/upload";
     //path default image
@@ -24,7 +29,10 @@ class Constant{
 
     public static $PATH_FOLDER_UPLOAD_USER = "users";
     public static $PATH_FOLDER_UPLOAD_ITEM_PHOTO = "item_photo";
-    public static $PATH_URL_UPLOAD_IMAGE = "storage/";
-//    public static $PATH_URL_UPLOAD_IMAGE = "storage/app/public/";
+//    public static $PATH_URL_UPLOAD_IMAGE = "storage/";
+    public static $PATH_URL_UPLOAD_IMAGE = "storage/app/public/";
 
+    //Driver social login
+    public static $PROVIDER_SOCIAL_FACEBOOK = "facebook";
+    public static $PROVIDER_SOCIAL_MOBILE_PHONE = "phone";
 }

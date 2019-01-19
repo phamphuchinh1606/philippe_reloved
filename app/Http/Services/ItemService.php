@@ -9,8 +9,8 @@ use App\Models\Item;
 
 class ItemService extends BaseService
 {
-    public function getList($params = []){
-        return $this->itemLogic->getAll($params);
+    public function getList($searchForm = []){
+        return $this->itemLogic->getAll($searchForm);
     }
 
     public function find($itemId){

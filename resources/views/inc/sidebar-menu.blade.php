@@ -25,15 +25,18 @@ $auth = Auth::user();
             <li class="header">
                 Sales
             </li>
-            <li class="{{ (Request::is('*brands*') ? 'active' : '') }}">
-                <a href="{{route('brand.index')}}"><i class="fa fa-suitcase"></i><span>Submitted items</span></a>
+            <li class="{{ (Request::is('*sale-item*') ? 'active' : '') }}">
+                <a href="{{route('sale_item.index')}}"><i class="fa fa-suitcase"></i><span>Sale Items</span></a>
             </li>
-            <li class="{{ (Request::is('*models*') ? 'active' : '') }}">
-                <a href='{{route('model.index')}}'><i class="fa fa-share-alt-square"></i><span>On Sale items</span></a>
-            </li>
-            <li class="{{ (Request::is('*categories*') ? 'active' : '') }}">
-                <a href="{{route('category.index')}}"><i class="fa fa-caret-square-o-left"></i><span>Sold items</span></a>
-            </li>
+            {{--<li class="{{ (Request::is('*brands*') ? 'active' : '') }}">--}}
+                {{--<a href="{{route('brand.index')}}"><i class="fa fa-suitcase"></i><span>Submitted items</span></a>--}}
+            {{--</li>--}}
+            {{--<li class="{{ (Request::is('*models*') ? 'active' : '') }}">--}}
+                {{--<a href='{{route('model.index')}}'><i class="fa fa-share-alt-square"></i><span>On Sale items</span></a>--}}
+            {{--</li>--}}
+            {{--<li class="{{ (Request::is('*categories*') ? 'active' : '') }}">--}}
+                {{--<a href="{{route('category.index')}}"><i class="fa fa-caret-square-o-left"></i><span>Sold items</span></a>--}}
+            {{--</li>--}}
             <li class="header">
                 App
             </li>

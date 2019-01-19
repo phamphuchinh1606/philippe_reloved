@@ -14,6 +14,10 @@ class UserLogic extends BaseLogic
         return User::find($userId);
     }
 
+    public function findByEmail($email){
+        return User::whereEmail($email)->first();
+    }
+
     public function save(User $user){
         if(isset($user)){
             $user->save();

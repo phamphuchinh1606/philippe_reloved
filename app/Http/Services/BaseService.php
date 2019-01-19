@@ -2,7 +2,7 @@
 namespace App\Http\Services;
 
 use App\Http\Logics\{UserLogic, BrandLogic, ModelLogic, StatusLogic, ColorLogic, CategoryLogic, ProductLogic, ItemLogic,
-        ItemPhotoLogic, TagLogic};
+        ItemPhotoLogic, TagLogic, SocialAccountLogic};
 
 class BaseService
 {
@@ -26,9 +26,11 @@ class BaseService
 
     protected $tagLogic;
 
+    protected $socialAccountLogic;
+
     public function __construct(UserLogic $userLogic, BrandLogic $brandLogic, ModelLogic $modelLogic, StatusLogic $statusLogic,
             ColorLogic $colorLogic, CategoryLogic $categoryLogic, ProductLogic $productLogic, ItemLogic $itemLogic,
-            ItemPhotoLogic $itemPhotoLogic, TagLogic $tagLogic)
+            ItemPhotoLogic $itemPhotoLogic, TagLogic $tagLogic, SocialAccountLogic $socialAccountLogic)
     {
         $this->userLogic = $userLogic;
         $this->brandLogic = $brandLogic;
@@ -40,5 +42,6 @@ class BaseService
         $this->itemLogic = $itemLogic;
         $this->itemPhotoLogic = $itemPhotoLogic;
         $this->tagLogic = $tagLogic;
+        $this->socialAccountLogic = $socialAccountLogic;
     }
 }

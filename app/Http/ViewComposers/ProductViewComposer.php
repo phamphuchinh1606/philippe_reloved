@@ -2,6 +2,7 @@
 
 namespace App\Http\ViewComposers;
 
+use App\Common\Constant;
 use Illuminate\View\View;
 use App\Http\Services\ProductService;
 
@@ -35,6 +36,22 @@ class ProductViewComposer
     public function compose(View $view)
     {
         $products = $this->service->getList();
-        $view->with('products', $products);
+        $productTree = [];
+        foreach ($products as $product){
+            if(!isset($product->parent)){
+                $product->childs = [];
+                $productTree[$product->id] = $product;
+            }
+        }
+        foreach ($products as $product){
+            if(isset($product->parent_id)){
+                if(isset($productTree[$product->parent_id])){
+                    $childs = $productTree[$product->parent_id]->childs;
+                    $childs[] = $product;
+                    $productTree[$product->parent_id]->childs = $childs;
+                }
+            }
+        }
+        $view->with('products', $products)->with('productTree', $productTree);
     }
 }

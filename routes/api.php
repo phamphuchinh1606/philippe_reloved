@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/user/facebook/check-token', 'UserController@checkTokenFacebook')->name('api.customer.facebook.check_token');
+Route::post('/user/social/create-login', 'UserController@createLoginSocial')->name('api.customer.social.create_login');
