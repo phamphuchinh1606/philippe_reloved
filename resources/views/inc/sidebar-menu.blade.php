@@ -23,7 +23,7 @@ $auth = Auth::user();
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">
-                Sales
+                SALES
             </li>
             <li class="{{ (Request::is('*sale-item*') ? 'active' : '') }}">
                 <a href="{{route('sale_item.index')}}"><i class="fa fa-suitcase"></i><span>Sale Items</span></a>
@@ -38,7 +38,7 @@ $auth = Auth::user();
                 {{--<a href="{{route('category.index')}}"><i class="fa fa-caret-square-o-left"></i><span>Sold items</span></a>--}}
             {{--</li>--}}
             <li class="header">
-                App
+                APP
             </li>
             <li class="{{ (Request::is('*products*') ? 'active' : '') }}">
                 <a href="{{route('product.index')}}"><i class="fa fa-product-hunt"></i><span>Products</span></a>
@@ -52,7 +52,7 @@ $auth = Auth::user();
             </li>
 
             <li class="header">
-                References
+                REFERENCES
             </li>
             <li class="{{ (Request::is('*brands*') ? 'active' : '') }}">
                 <a href="{{route('brand.index')}}"><i class="fa fa-bandcamp"></i><span>Brands</span></a>
