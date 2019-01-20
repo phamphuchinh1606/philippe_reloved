@@ -18,7 +18,7 @@
     <link href="{{ asset('css/icons/ionicons.min.css') }}" rel="stylesheet">
     <!-- Theme style -->
     <link href="{{ asset('css/admin/AdminLTE.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/admin/skins/skin-blue.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/skins/skin-blue.min.css?v=1') }}" rel="stylesheet">
     <link href="{{ asset('css/admin/morris.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin/jquery-jvectormap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin/dataTables.bootstrap.min.css') }}" rel="stylesheet">
