@@ -6,8 +6,13 @@ use App\Models\Brand;
 
 class BrandLogic extends BaseLogic
 {
-    public function getAll(){
-        return Brand::where('delete_flg',Constant::$DELETE_FLG_OFF)->orderBy('created_at','desc')->paginate();
+    public function getAll($limit = null){
+        $query = Brand::where('delete_flg',Constant::$DELETE_FLG_OFF)->orderBy('created_at','desc');
+        if(isset($limit)){
+            return $query->paginate($limit);
+        }else{
+            return $query->get();
+        }
     }
 
     public function find($brandId){
