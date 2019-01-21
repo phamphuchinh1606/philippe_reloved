@@ -118,9 +118,11 @@
                     @endif
                     </tbody>
                 </table>
-                <div class="pull-right">
-                    {{$items->appends($searchForm)->links()}}
-                </div>
+                @if(isset($items))
+                    <div class="pull-right">
+                        {{$items->appends($searchForm)->links()}}
+                    </div>
+                @endif
             </div>
         </div>
         <!-- /.box-body -->

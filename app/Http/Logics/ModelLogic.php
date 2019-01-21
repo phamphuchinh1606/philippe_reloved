@@ -7,7 +7,7 @@ use App\Models\Models;
 class ModelLogic extends BaseLogic
 {
     public function getAll(){
-        return Models::orderBy('created_at','desc')->paginate();
+        return Models::orderBy('created_at','desc')->get();
     }
 
     public function find($modelId){

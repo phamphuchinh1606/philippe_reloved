@@ -7,7 +7,7 @@ use App\Models\Tag;
 class TagLogic extends BaseLogic
 {
     public function getAll(){
-        return Tag::where('delete_flg',Constant::$DELETE_FLG_OFF)->orderBy('created_at','desc')->paginate();
+        return Tag::where('delete_flg',Constant::$DELETE_FLG_OFF)->orderBy('created_at','desc')->get();
     }
 
     public function find($id){

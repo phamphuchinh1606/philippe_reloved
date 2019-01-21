@@ -6,8 +6,12 @@ use App\Models\Color;
 
 class ColorLogic extends BaseLogic
 {
-    public function getAll(){
-        return Color::where('delete_flg',Constant::$DELETE_FLG_OFF)->orderBy('created_at','desc')->paginate();
+    public function getAll($limit = null){
+        $query = Color::where('delete_flg',Constant::$DELETE_FLG_OFF)->orderBy('created_at','desc');
+        if(isset($limit)){
+            return $query->paginate($limit);
+        }
+        return $query->get();
     }
 
     public function find($id){

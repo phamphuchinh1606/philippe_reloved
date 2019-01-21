@@ -6,7 +6,7 @@ use App\Models\Item;
 
 class ItemLogic extends BaseLogic
 {
-    public function getAll($searchForm = [], $limitPage = 20){
+    public function getAll($searchForm = [], $limitPage = null){
         $query = Item::Where('delete_flg',Constant::$PUBLIC_FLG_OFF);
         if(count($searchForm) > 0){
             if(isset($searchForm['status_id'])){
@@ -22,7 +22,10 @@ class ItemLogic extends BaseLogic
                 $query->whereProductId($searchForm['product_id']);
             }
         }
-        return $query->orderBy('created_at','desc')->paginate($limitPage);
+        if(isset($limitPage)){
+            return $query->orderBy('created_at','desc')->paginate($limitPage);
+        }
+        return $query->orderBy('created_at','desc')->get();
     }
 
     public function find($id){

@@ -30,7 +30,7 @@ class SaleItemController extends Controller
     public function index(Request $request)
     {
         $searchForm = $this->getSearchInfo($request);
-        $items = $this->itemService->getList($searchForm);
+        $items = $this->itemService->getList($searchForm, 20);
         return $this->showView('index',['items' => $items, 'searchForm' => $searchForm]);
     }
 

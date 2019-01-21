@@ -7,7 +7,7 @@ use App\Models\Category;
 class CategoryLogic extends BaseLogic
 {
     public function getAll(){
-        return Category::where('delete_flg',Constant::$DELETE_FLG_OFF)->orderBy('created_at','desc')->paginate();
+        return Category::where('delete_flg',Constant::$DELETE_FLG_OFF)->orderBy('created_at','desc')->get();
     }
 
     public function find($id){

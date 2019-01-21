@@ -7,7 +7,7 @@ use App\Models\ItemPhoto;
 class ItemPhotoLogic extends BaseLogic
 {
     public function getAll($params = []){
-        return ItemPhoto::orderBy('created_at','desc')->paginate();
+        return ItemPhoto::orderBy('created_at','desc')->get();
     }
 
     public function find($id){

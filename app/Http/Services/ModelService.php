@@ -21,16 +21,11 @@ class ModelService extends BaseService
         if(!isset($model)){
             $model = new Models();
         }
-
         if(isset($request->name)){
             $model->name = $request->name;
         }
-        if(isset($request->year)){
-            $model->year = $request->year;
-        }
-        if(isset($request->description)){
-            $model->description = $request->description;
-        }
+        $model->year = $request->year;
+        $model->description = $request->description;
         if(isset($request->brand_id)){
             $model->brand_id = $request->brand_id;
         }

@@ -11,7 +11,7 @@ class ProductLogic extends BaseLogic
         if(isset($params['level'])){
             $query->where('level',$params['level']);
         }
-        return $query->orderBy('created_at','desc')->paginate();
+        return $query->orderBy('created_at','desc')->get();
     }
 
     public function find($id){

@@ -99,7 +99,7 @@
                             <div class="col-xs-6">
                                 <div class="form-group{{ $errors->has('year') ? ' has-error' : '' }}">
                                     <label>Year</label>
-                                    <input name="year" value="{{$model->year}}" type="text" class="form-control" placeholder="Enter ..." required>
+                                    <input name="year" value="{{$model->year}}" type="text" class="form-control" placeholder="Enter ...">
                                     @if ($errors->has('year'))
                                         <span class="help-block">
                                                 <strong>{{ $errors->first('year') }}</strong>
